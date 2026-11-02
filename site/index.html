@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Я тебя люблю ❤️</title>
+  <meta name="description" content="Одно нажатие — и уведомление «Я тебя люблю ❤️»">
+  <meta name="theme-color" content="#ffd1e0">
+  <meta name="robots" content="noindex">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Люблю">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="screen" id="main">
+    <button class="gear" id="openSettings" type="button" aria-label="Настройки">⚙︎</button>
+
+    <section class="hero">
+      <button class="heart-btn" id="heartBtn" type="button" aria-label="Отправить «Я тебя люблю»">
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0" stop-color="#ff9ab9"/>
+              <stop offset="1" stop-color="#ff3f7d"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 84C47 82 6 56 6 28 6 14 17 5 29 5c9 0 17 5 21 13C54 10 62 5 71 5c12 0 23 9 23 23 0 28-41 54-44 56z" fill="url(#hg)"/>
+          <path d="M24 20c4-5 11-6 15-3" stroke="#fff" stroke-opacity=".6" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </button>
+      <p class="caption">Я тебя люблю ❤️</p>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <section class="sheet" id="settings" hidden aria-label="Настройки">
+    <div class="sheet-inner">
+      <header class="sheet-head">
+        <h1>Настройки</h1>
+        <button type="button" id="closeSettings" class="link">Готово</button>
+      </header>
+
+      <div class="card" id="installCard" hidden>
+        <h2>Установка</h2>
+        <p>Добавьте приложение на главный экран — так оно сможет получать уведомления.</p>
+        <button type="button" id="installBtn" class="btn">Установить приложение</button>
+      </div>
+
+      <div class="ios-hint" id="iosHint" hidden>
+        <b>Сначала установите приложение.</b>
+        На iPhone уведомления работают с iOS 16.4 и только при запуске
+        <u>с иконки на главном экране</u>: в Safari нажмите «Поделиться» →
+        «На экран «Домой»», откройте приложение с иконки и вернитесь сюда.
+      </div>
+
+      <div class="card">
+        <h2>Это устройство</h2>
+        <label class="lbl" for="familyKey">Ключ семьи</label>
+        <input id="familyKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Вставьте ключ">
+        <button type="button" id="connectBtn" class="btn">Подключить и разрешить уведомления</button>
+        <p class="note" id="connectMsg" aria-live="polite"></p>
+      </div>
+
+      <div class="card">
+        <h2>Связь</h2>
+        <p id="linkInfo">Нажмите «Проверить», чтобы убедиться, что второй телефон подключён.</p>
+        <div class="row">
+          <button type="button" id="checkBtn" class="btn ghost">Проверить</button>
+          <button type="button" id="testBtn" class="btn ghost">Тест себе</button>
+        </div>
+        <p class="note" id="checkMsg" aria-live="polite"></p>
+      </div>
+
+      <div class="card">
+        <h2>Отключить</h2>
+        <p>Это устройство перестанет получать сообщения. Подключить снова можно в любой момент.</p>
+        <button type="button" id="disconnectBtn" class="btn danger">Отключить это устройство</button>
+        <p class="note" id="disconnectMsg" aria-live="polite"></p>
+      </div>
+
+      <p class="foot">Уведомления доставляют push-сервисы Apple и Google: обычно за секунды, но время не гарантируется и зависит от настроек телефона («Не беспокоить», фокусирование, экономия заряда).</p>
+    </div>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
